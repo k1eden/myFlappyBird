@@ -3,21 +3,20 @@ package com.k1;
 import javafx.geometry.Point2D;
 import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
-import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
 
-
+import java.util.ConcurrentModificationException;
 
 
 public class Birdy extends Pane {
     public Point2D movement;
     Rectangle bird;
     public Birdy() {
-        Image image = new Image("https://img1.freepng.ru/20180417/aiq/kisspng-flappy-bird-tap-bird-2d-basic-flappy-angry-birds-5ad5bd98c0bcd2.8287977415239571447895.jpg");
+       // Image image = new Image("https://img1.freepng.ru/20180417/aiq/kisspng-flappy-bird-tap-bird-2d-basic-flappy-angry-birds-5ad5bd98c0bcd2.8287977415239571447895.jpg");
         movement = new Point2D(0,0);
-        bird = new Rectangle(20, 20, Color.RED);
-        bird.setFill(new ImagePattern(image));
+        bird = new Rectangle(20, 20);
+        bird.setFill(new ImagePattern(new Image("Fbird.jpg")));
         setTranslateX(120);
         setTranslateY(300);
         getChildren().addAll(bird);
@@ -46,9 +45,10 @@ public class Birdy extends Pane {
             for (Fruits fruit : FlappyBird.fruits) {
                 if (fruit.getBoundsInParent().intersects(getBoundsInParent())) {
                     FlappyBird.score += 5;
-                    FlappyBird.fruits.remove(fruit);
+                   // FlappyBird.fruits.remove(fruit);
+                    fruit.setTranslateY(-100);
                     movement = new Point2D(0,2);
-                    FlappyBird.Root1.getChildren().remove(fruit);
+                   // FlappyBird.Root1.getChildren().remove(fruit);
                 }
             }
         }
@@ -73,9 +73,10 @@ public class Birdy extends Pane {
             for (Fruits fruit : FlappyBird.fruits) {
                 if (fruit.getBoundsInParent().intersects(getBoundsInParent())) {
                     FlappyBird.score += 5;
-                    FlappyBird.fruits.remove(fruit);
+                  //  FlappyBird.fruits.remove(fruit);
+                    fruit.setTranslateY(-100);
                     movement = new Point2D(0,2);
-                    FlappyBird.Root1.getChildren().remove(fruit);
+                 //   FlappyBird.Root1.getChildren().remove(fruit);
                 }
             }
         }

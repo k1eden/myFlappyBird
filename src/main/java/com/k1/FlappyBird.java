@@ -5,6 +5,7 @@ import javafx.application.Application;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import java.util.ArrayList;
@@ -19,7 +20,7 @@ public class FlappyBird extends Application {
     public Label scoreTab = new Label("Score: " + score);
     Birdy bird = new Birdy();
 
-    public Parent CContent() {                                                            //отвечает за создание сцены.
+    public Parent cContent() {                                                            //отвечает за создание сцены.
         Root1.setPrefSize(600, 600);
 
         for (int i = 1; i < 1000; i++) {
@@ -39,7 +40,7 @@ public class FlappyBird extends Application {
             Root1.getChildren().addAll(wall, wall2);
         }
 
-        for (int i = 1; i < 1000; i += 50) {
+        for (int i = 1; i < 1000; i += 25) {
             Fruits fruit = new Fruits();
 
             fruit.setTranslateX(15 * i);
@@ -71,8 +72,10 @@ public class FlappyBird extends Application {
     @Override
     public void start(Stage stage) {
         stage.setTitle("FBird");
-        Scene scene = new Scene(CContent());
+        stage.getIcons().add(new Image("flappy.png"));
+        Scene scene = new Scene(cContent());
         scene.setOnMouseClicked(mouseEvent -> bird.jump());
+        scene.setOnKeyPressed(SPACE -> bird.jump());
         stage.setScene(scene);
         stage.show();
 
