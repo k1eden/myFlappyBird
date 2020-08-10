@@ -11,7 +11,7 @@ import javafx.scene.shape.Rectangle;
 public class Walls extends Pane {
     // Image image = new Image("https://es.toppng.com/public/uploads/thumbnail/flappy-bird-pipe-transparent-11549930651arxp9eyzqz.png");
     Rectangle wall;
-    public int h;
+    int h;
 
     public Walls(int h) {
         this.h = h;

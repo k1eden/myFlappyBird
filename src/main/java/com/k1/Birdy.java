@@ -24,9 +24,9 @@ public class Birdy extends Pane {
 
     public void moveY(int dist) {
         for (int i = 0; i < Math.abs(dist); i++) {
-            for (Walls wall : FlappyBird.walls) {
+            for (Walls wall : Content.walls) {
                 if (wall.getBoundsInParent().intersects(getBoundsInParent())) {
-                    FlappyBird.score = 0;
+                    Content.score = 0;
                     if (dist>0) {
                         setTranslateY(getTranslateY() - 1);
                     }
@@ -42,9 +42,9 @@ public class Birdy extends Pane {
         }
 
         for (int j = 0; j < Math.abs(dist); j++) {
-            for (Fruits fruit : FlappyBird.fruits) {
+            for (Fruits fruit : Content.fruits) {
                 if (fruit.getBoundsInParent().intersects(getBoundsInParent())) {
-                    FlappyBird.score += 5;
+                    Content.score += 5;
                    // FlappyBird.fruits.remove(fruit);
                     fruit.setTranslateY(-100);
                     movement = new Point2D(0,2);
@@ -56,23 +56,23 @@ public class Birdy extends Pane {
 
     public void moveX(int dist) {
         for (int i = 0; i < dist; i++) {
-            for (Walls wall : FlappyBird.walls) {
+            for (Walls wall : Content.walls) {
                 if (getBoundsInParent().intersects(wall.getBoundsInParent())) {
-                    FlappyBird.score = 0;
+                    Content.score = 0;
                     if (getTranslateX() + 20 == wall.getTranslateX()) {
                         setTranslateX(getTranslateX() - 1);
                         return;
                     }
                 }
-                if (getTranslateX() + 20 == wall.getTranslateX()) FlappyBird.score += 5;
+                if (getTranslateX() + 20 == wall.getTranslateX()) Content.score += 5;
             }
             setTranslateX(getTranslateX() + 1);
         }
 
         for (int j = 0; j < Math.abs(dist); j++) {
-            for (Fruits fruit : FlappyBird.fruits) {
+            for (Fruits fruit : Content.fruits) {
                 if (fruit.getBoundsInParent().intersects(getBoundsInParent())) {
-                    FlappyBird.score += 5;
+                    Content.score += 5;
                   //  FlappyBird.fruits.remove(fruit);
                     fruit.setTranslateY(-100);
                     movement = new Point2D(0,2);
