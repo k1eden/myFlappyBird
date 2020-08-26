@@ -24,7 +24,7 @@ public class Birdy extends Pane {
     }
 
     private void nullifier() {
-        Content.score = 0;
+        Content.failCounter += 0.1;
     }
 
     public void moveY(int dist) {
@@ -69,7 +69,7 @@ public class Birdy extends Pane {
                         return;
                     }
                 }
-                if (getTranslateX() + 20 == wall.getTranslateX()) Content.score += 5;
+                if (getTranslateX() - 20 == wall.getTranslateX()) Content.score += 5;
             }
             setTranslateX(getTranslateX() + 1);
         }

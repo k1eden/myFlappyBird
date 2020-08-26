@@ -13,11 +13,14 @@ public class Content {
    static ArrayList<Walls> walls = new ArrayList<>();
    static ArrayList<Fruits> fruits = new ArrayList<>();
    static int score = 0;
+   static double failCounter = 0;
    static Label scoreTab = new Label("Score: " + score);
+   static Label failCounterTab = new Label("Fails count: " + failCounter);
    static Birdy bird = new Birdy();
 
     public static Parent cContent() {
         Root1.setPrefSize(600, 600);
+        failCounterTab.setTranslateX(400);
 
         for (int i = 1; i < 1000; i++) {
             int apertureWidth = (int)(Math.random() * 50 + 100);
@@ -48,17 +51,19 @@ public class Content {
         }
 
         Root1.getChildren().add(bird);
-        Root2.getChildren().addAll(Root1, scoreTab);
+        Root2.getChildren().addAll(Root1, scoreTab, failCounterTab);
         return Root2;
     }
 
     public static void refresh() {
+       int score1 = score - (int) failCounter;
 
         if (bird.movement.getY() < 6) bird.movement = bird.movement.add(0,1);
 
         bird.moveX((int)bird.movement.getX());
         bird.moveY((int)bird.movement.getY());
-        scoreTab.setText("Score: " + score);
+        scoreTab.setText("Score: " + score1);
+        failCounterTab.setText("Fails count: " + failCounter);
 
         bird.translateXProperty().addListener(((observableValue, number, t1) -> {
             if (t1.intValue() > 170) Root1.setLayoutX(-(t1.intValue() - 170));
