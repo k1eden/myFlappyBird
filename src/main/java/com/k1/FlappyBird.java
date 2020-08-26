@@ -17,6 +17,7 @@ public class FlappyBird extends Application {
         scene.setOnKeyPressed(SPACE -> Content.bird.jump());
         stage.setScene(scene);
         stage.show();
+      //  Sound.playSound("src/main/resources/1.wav").play();
 
         AnimationTimer timer = new AnimationTimer() {
             @Override
