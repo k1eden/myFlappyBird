@@ -25,7 +25,7 @@ public class FlappyBird extends Application {
 
         if (Content.score + Content.failCounter - Content.helpScore == 10000) {
             stage.close();
-            System.out.println("Thank you for game! Your score is: " + Content.score);
+            System.out.println("Thank you for the game! Your score is: " + Content.score);
         }
 
         AnimationTimer timer = new AnimationTimer() {
@@ -36,5 +36,7 @@ public class FlappyBird extends Application {
         }; timer.start();
     }
 
-    public static void main(String[] args) {launch(args);}
+    public static void main(String[] args) {
+        launch(args);
+    }
 }
