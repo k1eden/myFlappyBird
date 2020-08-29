@@ -17,6 +17,7 @@ public class Content {
    static Label scoreTab = new Label("Score: " + score);
    static Label failCounterTab = new Label("Fails count: " + failCounter);
    static Birdy bird = new Birdy();
+   static int helpScore = 0;
 
     public static Parent cContent() {
         Root1.setPrefSize(600, 600);

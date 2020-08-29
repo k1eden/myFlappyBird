@@ -51,6 +51,7 @@ public class Birdy extends Pane {
             for (Fruits fruit : Content.fruits) {
                 if (fruit.getBoundsInParent().intersects(getBoundsInParent())) {
                     Content.score += 5;
+                    Content.helpScore += 5;
                     fruit.setTranslateY(-100);
                     movement = new Point2D(0,2);
                 }
@@ -78,6 +79,7 @@ public class Birdy extends Pane {
             for (Fruits fruit : Content.fruits) {
                 if (fruit.getBoundsInParent().intersects(getBoundsInParent())) {
                     Content.score += 5;
+                    Content.helpScore += 5;
                     fruit.setTranslateY(-100);
                     movement = new Point2D(0,2);
                 }
