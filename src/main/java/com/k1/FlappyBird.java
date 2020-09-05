@@ -16,8 +16,6 @@ public class FlappyBird extends Application {
         stage.setTitle("FBird");
         stage.getIcons().add(new Image("flappy.png"));
         Scene scene = new Scene(Content.cContent());
-        scene.setOnMouseClicked(mouseEvent -> Content.bird.jump());
-        scene.setOnKeyPressed(SPACE -> Content.bird.jump());
         stage.setScene(scene);
         stage.show();
         sound.play();
@@ -34,6 +32,8 @@ public class FlappyBird extends Application {
                 Content.refresh();
             }
         }; timer.start();
+
+        new Controller(scene, sound, timer);
     }
 
     public static void main(String[] args) {
