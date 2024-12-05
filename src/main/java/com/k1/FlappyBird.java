@@ -8,7 +8,7 @@ import javafx.stage.Stage;
 
 import java.io.File;
 
-public class FlappyBird extends Application {
+public class   FlappyBird extends Application {
 
     @Override
     public void start(Stage stage) {
@@ -21,15 +21,16 @@ public class FlappyBird extends Application {
         sound.play();
         sound.setVolume(0.7F);
 
-        if (Content.score + Content.failCounter - Content.helpScore == 10000) {
-            stage.close();
-            System.out.println("Thank you for the game! Your score is: " + Content.score);
-        }
+
 
         AnimationTimer timer = new AnimationTimer() {
             @Override
             public void handle(long l) {
                 Content.refresh();
+                if (Content.totalScore <= -10) {
+                    stage.close();
+                    System.out.println("Thank you for the game! Your score is: " + Content.score);
+                }
             }
         }; timer.start();
 
