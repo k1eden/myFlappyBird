@@ -19,12 +19,12 @@ public class Birdy extends Pane {
         getChildren().addAll(bird);
     }
 
-    private void wound() {
+    private void  wound() {
         bird.setFill(new ImagePattern(new Image("FbirdWounded.jpg")));
     }
 
     private void nullifier() {
-        Content.failCounter += 0.1;
+        Content.failCounter += 2;
     }
 
     public void moveY(int dist) {
